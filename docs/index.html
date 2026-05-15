@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLB Probable Starters</title>
+  <title>MLB Fantasy Scout</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,6 +17,7 @@
       --accent: #3b82f6;
       --green: #22c55e;
       --yellow: #eab308;
+      --gold: #f59e0b;
     }
 
     body {
@@ -25,14 +26,39 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 15px;
       line-height: 1.5;
-      padding: 2rem 1rem 4rem;
+      padding: 1.5rem 1rem 4rem;
     }
 
-    .container { max-width: 900px; margin: 0 auto; }
+    .container { max-width: 960px; margin: 0 auto; }
 
-    header { margin-bottom: 2rem; }
+    header { margin-bottom: 1.5rem; }
     header h1 { font-size: 1.4rem; font-weight: 700; }
     header .meta { color: var(--muted); font-size: 0.82rem; margin-top: 0.3rem; }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      gap: 0.25rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.6rem 1.1rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
     .section-title {
       font-size: 0.68rem;
@@ -43,15 +69,13 @@
       margin-bottom: 0.75rem;
     }
 
-    /* ── Available cards ── */
+    /* ── Starters: available cards ── */
     .available-section { margin-bottom: 2.5rem; }
-
     .available-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 0.5rem;
     }
-
     .available-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -61,35 +85,22 @@
       justify-content: space-between;
       align-items: center;
       gap: 0.5rem;
-      cursor: pointer;
-      transition: border-color 0.15s;
     }
-    .available-card:hover { border-color: var(--accent); }
-
     .available-card .flag { font-size: 1.1rem; margin-right: 0.35rem; }
     .available-card .name { font-weight: 500; }
     .available-card .matchup { font-size: 0.76rem; color: var(--muted); margin-top: 0.1rem; }
 
     .pct-badge {
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.2rem 0.45rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 0.2rem 0.45rem; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
     }
     .pct-low  { background: #14532d33; color: #4ade80; }
     .pct-mid  { background: #71401233; color: var(--yellow); }
     .pct-high { background: #1e3a5f33; color: #60a5fa; }
 
-    /* ── Games list ── */
-    .games-section { }
-
-    .game-row {
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── Starters: game rows ── */
+    .game-row { border-bottom: 1px solid var(--border); }
     .game-row:first-child { border-top: 1px solid var(--border); }
-
     .game-header {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -97,30 +108,20 @@
       gap: 1rem;
       padding: 0.85rem 0;
     }
-
     .team-block .team-name { font-size: 0.76rem; color: var(--muted); }
-    .team-block .pitcher-row {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.1rem;
-    }
+    .team-block .pitcher-row { display: flex; align-items: center; gap: 0.35rem; margin-top: 0.1rem; }
     .team-block.home .pitcher-row { flex-direction: row-reverse; }
     .team-block.home { text-align: right; }
     .team-block.home .team-name { text-align: right; }
-
     .pitcher-name { font-weight: 500; cursor: pointer; }
     .pitcher-name:hover { color: var(--accent); }
     .pitcher-name.tbd { color: var(--muted); font-style: italic; font-weight: 400; cursor: default; }
     .pitcher-flag { font-size: 1rem; }
-
     .ownership-pct { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
     .ownership-pct.available { color: var(--green); }
-
     .vs-col { text-align: center; color: var(--muted); font-size: 0.75rem; }
     .vs-col .time { display: block; margin-top: 0.2rem; font-size: 0.7rem; }
 
-    /* ── Expandable recent starts ── */
     .starts-panel {
       display: none;
       background: var(--surface2);
@@ -128,38 +129,114 @@
       padding: 0.85rem 1rem;
     }
     .starts-panel.open { display: block; }
-
     .starts-panel h4 {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem;
+    }
+    .starts-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .starts-table th {
+      text-align: left; color: var(--muted); font-weight: 500;
+      padding: 0.2rem 0.5rem 0.35rem 0; border-bottom: 1px solid var(--border);
+    }
+    .starts-table td { padding: 0.3rem 0.5rem 0.3rem 0; border-bottom: 1px solid #1e2130; }
+    .starts-table tr:last-child td { border-bottom: none; }
+    .result-W { color: var(--green); font-weight: 600; }
+    .result-L { color: #f87171; font-weight: 600; }
+    .result-ND { color: var(--muted); }
+
+    /* ── Prospect pipeline ── */
+    .prospect-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 640px) { .prospect-cols { grid-template-columns: 1fr; } }
+
+    .prospect-list { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .prospect-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 0.6rem 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .prospect-row .p-name { font-weight: 500; font-size: 0.9rem; }
+    .prospect-row .p-team { font-size: 0.74rem; color: var(--muted); }
+    .prospect-row .p-stat { font-size: 0.82rem; color: var(--text); white-space: nowrap; }
+    .prospect-row .p-flag { font-size: 1rem; margin-right: 0.3rem; }
+    .star-badge {
+      font-size: 0.72rem; font-weight: 700;
+      background: #78350f44; color: var(--gold);
+      padding: 0.15rem 0.4rem; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0;
     }
 
-    .starts-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
+    /* IL opportunities */
+    .il-section { margin-bottom: 2rem; }
+    .il-team-block {
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .starts-table th {
-      text-align: left;
-      color: var(--muted);
-      font-weight: 500;
-      padding: 0.2rem 0.5rem 0.35rem 0;
+    .il-team-header {
+      background: var(--surface);
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .il-team-name { font-weight: 600; font-size: 0.9rem; }
+    .il-pills { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .il-pill {
+      font-size: 0.7rem;
+      background: #7f1d1d33;
+      color: #fca5a5;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+    .il-candidates { padding: 0.5rem 0; }
+    .il-candidate {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.85rem;
       border-bottom: 1px solid var(--border);
     }
-    .starts-table td {
-      padding: 0.3rem 0.5rem 0.3rem 0;
-      border-bottom: 1px solid #1e2130;
+    .il-candidate:last-child { border-bottom: none; }
+    .il-pos {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      flex-shrink: 0;
     }
-    .starts-table tr:last-child td { border-bottom: none; }
-    .starts-table .result-W { color: var(--green); font-weight: 600; }
-    .starts-table .result-L { color: #f87171; font-weight: 600; }
-    .starts-table .result-ND { color: var(--muted); }
+    .il-cand-name { font-weight: 500; flex: 1; }
+    .il-cand-stat { font-size: 0.78rem; color: var(--muted); }
+    .il-cand-tag {
+      font-size: 0.7rem; padding: 0.1rem 0.35rem; border-radius: 3px; flex-shrink: 0;
+    }
+    .tag-prospect { background: #14532d33; color: #4ade80; }
+    .tag-vet { background: #1e293b; color: var(--muted); }
+    .tag-top { background: #78350f44; color: var(--gold); font-weight: 700; }
 
-    .no-starts { color: var(--muted); font-size: 0.82rem; font-style: italic; }
+    .hint {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--surface);
+      border-radius: 6px;
+      border-left: 2px solid var(--border);
+    }
 
     footer { margin-top: 3rem; font-size: 0.75rem; color: var(--muted); }
   </style>
@@ -167,24 +244,61 @@
 <body>
 <div class="container">
   <header>
-    <h1 id="date-label">MLB Probable Starters</h1>
+    <h1>MLB Fantasy Scout</h1>
     <div class="meta" id="meta"></div>
   </header>
 
-  <div class="available-section">
-    <div class="section-title">Likely Available in 12-Team League</div>
-    <div class="available-grid" id="available-grid"></div>
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="switchTab('starters', this)">Probable Starters</button>
+    <button class="tab-btn" onclick="switchTab('prospects', this)">Prospect Pipeline</button>
+  </nav>
+
+  <!-- ── STARTERS TAB ── -->
+  <div class="tab-panel active" id="tab-starters">
+    <div class="available-section">
+      <div class="section-title">Likely Available in 12-Team League</div>
+      <div class="available-grid" id="available-grid"></div>
+    </div>
+    <div>
+      <div class="section-title">All Matchups — click a pitcher for recent starts</div>
+      <div id="games-list"></div>
+    </div>
   </div>
 
-  <div class="games-section">
-    <div class="section-title">All Matchups — click a pitcher for recent starts</div>
-    <div id="games-list"></div>
+  <!-- ── PROSPECTS TAB ── -->
+  <div class="tab-panel" id="tab-prospects">
+    <div class="hint" id="prospect-hint"></div>
+
+    <div class="il-section">
+      <div class="section-title">IL Call-Up Candidates — by team</div>
+      <div id="il-list"></div>
+    </div>
+
+    <div class="prospect-cols">
+      <div>
+        <div class="section-title">Top AAA Hitters</div>
+        <div class="prospect-list" id="top-hitters"></div>
+      </div>
+      <div>
+        <div class="section-title">Top AAA Starters</div>
+        <div class="prospect-list" id="top-pitchers"></div>
+      </div>
+    </div>
   </div>
 
   <footer id="footer"></footer>
 </div>
 
 <script>
+  /* ── Tab switching ── */
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ── Shared helpers ── */
   function pctClass(pct) {
     if (pct < 20) return 'pct-low';
     if (pct < 45) return 'pct-mid';
@@ -196,146 +310,165 @@
     return new Date(utcStr).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
   }
 
-  function startsTable(pitcher) {
-    if (!pitcher || !pitcher.recent_starts || pitcher.recent_starts.length === 0) {
-      return '<p class="no-starts">No recent start data available.</p>';
-    }
-    const rows = pitcher.recent_starts.map(s => `
-      <tr>
-        <td>${s.date}</td>
-        <td>${s.matchup}</td>
-        <td>${s.ip}</td>
-        <td>${s.h}</td>
-        <td>${s.er}</td>
-        <td>${s.bb}</td>
-        <td>${s.k}</td>
-        <td class="result-${s.result}">${s.result}</td>
-      </tr>
-    `).join('');
-    return `
-      <table class="starts-table">
-        <thead><tr>
-          <th>Date</th><th>Opp</th><th>IP</th><th>H</th><th>ER</th><th>BB</th><th>K</th><th></th>
-        </tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    `;
-  }
-
-  function togglePanel(panelId) {
-    const el = document.getElementById(panelId);
+  function togglePanel(id) {
+    const el = document.getElementById(id);
     if (el) el.classList.toggle('open');
   }
 
-  function pitcherBlock(pitcher, side) {
-    if (!pitcher) {
-      return `<div class="team-block ${side}">
-        <div class="team-name"></div>
-        <div class="pitcher-row"><span class="pitcher-name tbd">TBD</span></div>
-      </div>`;
-    }
-    const panelId = `panel-${pitcher.id}`;
-    const pctAvail = pitcher.ownership !== null && pitcher.ownership < 65;
-    const pctLabel = pitcher.ownership !== null
-      ? `${pitcher.ownership}% owned`
-      : '';
-    return `
-      <div class="team-block ${side}">
-        <div class="pitcher-row">
-          ${pitcher.flag ? `<span class="pitcher-flag">${pitcher.flag}</span>` : ''}
-          <span class="pitcher-name" onclick="togglePanel('${panelId}')">${pitcher.name}</span>
-        </div>
-        ${pctLabel ? `<div class="ownership-pct ${pctAvail ? 'available' : ''}">${pctLabel}</div>` : ''}
-      </div>
-    `;
+  function startsTable(pitcher) {
+    if (!pitcher?.recent_starts?.length)
+      return '<p style="color:var(--muted);font-size:0.82rem;font-style:italic">No recent start data.</p>';
+    return `<table class="starts-table">
+      <thead><tr><th>Date</th><th>Opp</th><th>IP</th><th>H</th><th>ER</th><th>BB</th><th>K</th><th></th></tr></thead>
+      <tbody>${pitcher.recent_starts.map(s => `
+        <tr>
+          <td>${s.date}</td><td>${s.matchup}</td><td>${s.ip}</td>
+          <td>${s.h}</td><td>${s.er}</td><td>${s.bb}</td><td>${s.k}</td>
+          <td class="result-${s.result}">${s.result}</td>
+        </tr>`).join('')}
+      </tbody></table>`;
   }
 
-  async function load() {
+  /* ── Load starters ── */
+  async function loadStarters() {
     let data;
     try {
       const resp = await fetch('data.json?cb=' + Date.now());
       data = await resp.json();
-    } catch (e) {
-      document.getElementById('date-label').textContent = 'Failed to load data.json';
-      return;
-    }
+    } catch { document.getElementById('meta').textContent = 'Failed to load data.json'; return; }
 
-    document.title = `MLB Starters — ${data.date_label}`;
-    document.getElementById('date-label').textContent = `MLB Probable Starters — ${data.date_label}`;
+    document.title = `MLB Scout — ${data.date_label}`;
     document.getElementById('meta').textContent =
-      `Available threshold: <${data.availability_threshold}% owned on ESPN · ${data.generated_at.replace('T', ' ').replace('Z', ' UTC')}`;
+      `${data.date_label} · ESPN threshold <${data.availability_threshold}% · ${data.generated_at.replace('T',' ').replace('Z',' UTC')}`;
 
-    // Available grid
     const grid = document.getElementById('available-grid');
-    if (!data.available || data.available.length === 0) {
+    if (!data.available?.length) {
       grid.innerHTML = '<p style="color:var(--muted);font-size:0.85rem">None found below threshold.</p>';
     } else {
       grid.innerHTML = data.available.map(p => `
-        <div class="available-card" onclick="togglePanel('panel-${p.id || p.name}')">
+        <div class="available-card">
           <div>
-            <div class="name">
-              ${p.flag ? `<span class="flag">${p.flag}</span>` : ''}${p.name}
-            </div>
+            <div class="name">${p.flag ? `<span class="flag">${p.flag}</span>` : ''}${p.name}</div>
             <div class="matchup">${p.matchup}</div>
           </div>
           <span class="pct-badge ${pctClass(p.pct_owned)}">${p.pct_owned}%</span>
-        </div>
-      `).join('');
+        </div>`).join('');
     }
 
-    // Games list
-    const list = document.getElementById('games-list');
-    list.innerHTML = data.games.map(g => {
-      const ap = g.away_pitcher;
-      const hp = g.home_pitcher;
-      const apPanel = ap ? `panel-${ap.id}` : null;
-      const hpPanel = hp ? `panel-${hp.id}` : null;
-
-      // Build combined starts panel (one panel per game row, split by pitcher)
+    document.getElementById('games-list').innerHTML = data.games.map(g => {
+      const ap = g.away_pitcher, hp = g.home_pitcher;
+      const panelId = `panel-${g.away_team.replace(/\s/g,'')}`;
+      const apBlk = ap
+        ? `<div class="team-block away">
+             <div class="team-name">${g.away_team}</div>
+             <div class="pitcher-row">
+               <span class="pitcher-flag">${ap.flag||''}</span>
+               <span class="pitcher-name" onclick="togglePanel('${panelId}')">${ap.name}</span>
+             </div>
+             ${ap.ownership!=null?`<div class="ownership-pct ${ap.ownership<65?'available':''}">${ap.ownership}% owned</div>`:''}
+           </div>`
+        : `<div class="team-block away"><div class="team-name">${g.away_team}</div><div class="pitcher-row"><span class="pitcher-name tbd">TBD</span></div></div>`;
+      const hpBlk = hp
+        ? `<div class="team-block home">
+             <div class="team-name">${g.home_team}</div>
+             <div class="pitcher-row">
+               <span class="pitcher-name" onclick="togglePanel('${panelId}')">${hp.name}</span>
+               <span class="pitcher-flag">${hp.flag||''}</span>
+             </div>
+             ${hp.ownership!=null?`<div class="ownership-pct ${hp.ownership<65?'available':''}">${hp.ownership}% owned</div>`:''}
+           </div>`
+        : `<div class="team-block home"><div class="team-name">${g.home_team}</div><div class="pitcher-row"><span class="pitcher-name tbd">TBD</span></div></div>`;
       const panelContent = [
-        ap ? `<div><h4>${ap.flag ? ap.flag + ' ' : ''}${ap.name} — Last ${ap.recent_starts.length} Starts</h4>${startsTable(ap)}</div>` : '',
-        hp ? `<div style="margin-top:${ap ? '1.25rem' : '0'}"><h4>${hp.flag ? hp.flag + ' ' : ''}${hp.name} — Last ${hp.recent_starts.length} Starts</h4>${startsTable(hp)}</div>` : '',
+        ap ? `<div><h4>${ap.flag||''} ${ap.name} — Last ${ap.recent_starts.length} Starts</h4>${startsTable(ap)}</div>` : '',
+        hp ? `<div style="margin-top:${ap?'1.25rem':'0'}"><h4>${hp.flag||''} ${hp.name} — Last ${hp.recent_starts.length} Starts</h4>${startsTable(hp)}</div>` : '',
       ].filter(Boolean).join('');
-
-      const panelId = `panel-game-${g.away_team.replace(/\s/g,'')}`;
-
-      return `
-        <div class="game-row">
-          <div class="game-header">
-            <div class="team-block away">
-              <div class="team-name">${g.away_team}</div>
-              <div class="pitcher-row">
-                ${ap ? `<span class="pitcher-flag">${ap.flag || ''}</span>` : ''}
-                <span class="pitcher-name ${ap ? '' : 'tbd'}" ${ap ? `onclick="togglePanel('${panelId}')"` : ''}>${ap ? ap.name : 'TBD'}</span>
-              </div>
-              ${ap && ap.ownership !== null ? `<div class="ownership-pct ${ap.ownership < 65 ? 'available' : ''}">${ap.ownership}% owned</div>` : ''}
-            </div>
-
-            <div class="vs-col">
-              @
-              <span class="time">${utcToLocal(g.game_time_utc)}</span>
-            </div>
-
-            <div class="team-block home">
-              <div class="team-name">${g.home_team}</div>
-              <div class="pitcher-row">
-                <span class="pitcher-name ${hp ? '' : 'tbd'}" ${hp ? `onclick="togglePanel('${panelId}')"` : ''}>${hp ? hp.name : 'TBD'}</span>
-                ${hp ? `<span class="pitcher-flag">${hp.flag || ''}</span>` : ''}
-              </div>
-              ${hp && hp.ownership !== null ? `<div class="ownership-pct ${hp.ownership < 65 ? 'available' : ''}">${hp.ownership}% owned</div>` : ''}
-            </div>
-          </div>
-
-          ${panelContent ? `<div class="starts-panel" id="${panelId}">${panelContent}</div>` : ''}
+      return `<div class="game-row">
+        <div class="game-header">${apBlk}
+          <div class="vs-col">@<span class="time">${utcToLocal(g.game_time_utc)}</span></div>
+          ${hpBlk}
         </div>
-      `;
+        ${panelContent ? `<div class="starts-panel" id="${panelId}">${panelContent}</div>` : ''}
+      </div>`;
     }).join('');
 
     document.getElementById('footer').textContent =
-      `Data: MLB Stats API + ESPN Fantasy · ${data.generated_at.replace('T', ' ').replace('Z', ' UTC')}`;
+      `MLB Stats API + ESPN Fantasy · ${data.generated_at.replace('T',' ').replace('Z',' UTC')}`;
   }
 
-  load();
+  /* ── Load prospects ── */
+  async function loadProspects() {
+    let data;
+    try {
+      const resp = await fetch('prospects.json?cb=' + Date.now());
+      data = await resp.json();
+    } catch { document.getElementById('prospect-hint').textContent = 'Failed to load prospects.json'; return; }
+
+    document.getElementById('prospect-hint').textContent =
+      `★ = likely top prospect (age ≤ 24, no MLB debut). Prospect = no MLB service time. Vet = previously debuted. `
+      + `Rankings source: no free API available — using age + AAA performance heuristics. `
+      + `Updated ${data.generated_at.replace('T',' ').replace('Z',' UTC')}`;
+
+    // IL opportunities
+    const ilList = document.getElementById('il-list');
+    ilList.innerHTML = data.il_opportunities.map(opp => {
+      const pills = opp.il_players.map(p =>
+        `<span class="il-pill">${p.name} (${p.position})</span>`).join('');
+      const rows = opp.candidates.map(c => {
+        const stat = c.stats || {};
+        let statStr = '';
+        if (c.stat_group === 'hitting') {
+          statStr = `OPS ${stat.ops || '—'} · ${stat.homeRuns ?? '—'} HR`;
+        } else {
+          statStr = `ERA ${stat.era || '—'} · ${stat.inningsPitched || '—'} IP`;
+        }
+        const isProspect = !c.debut_date;
+        const tagClass = c.likely_top_prospect ? 'tag-top' : isProspect ? 'tag-prospect' : 'tag-vet';
+        const tagLabel = c.likely_top_prospect ? '★ Top Prospect' : isProspect ? 'Prospect' : 'Vet';
+        return `<div class="il-candidate">
+          <span class="il-pos">${c.position}</span>
+          <span>${c.flag||''}</span>
+          <span class="il-cand-name">${c.name}</span>
+          <span class="il-cand-stat">${statStr}</span>
+          <span class="il-cand-tag ${tagClass}">${tagLabel}</span>
+        </div>`;
+      }).join('');
+      return `<div class="il-team-block">
+        <div class="il-team-header">
+          <span class="il-team-name">${opp.team}</span>
+          <div class="il-pills">${pills}</div>
+        </div>
+        <div class="il-candidates">${rows}</div>
+      </div>`;
+    }).join('');
+
+    // Top hitters
+    document.getElementById('top-hitters').innerHTML = data.top_aaa_hitters.map(p => `
+      <div class="prospect-row">
+        <div>
+          <div class="p-name"><span class="p-flag">${p.flag||''}</span>${p.name}</div>
+          <div class="p-team">${p.team}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="p-stat">OPS ${p.ops} · ${p.hr} HR</span>
+          ${p.likely_top_prospect ? '<span class="star-badge">★ Top</span>' : ''}
+        </div>
+      </div>`).join('');
+
+    // Top pitchers
+    document.getElementById('top-pitchers').innerHTML = data.top_aaa_pitchers.map(p => `
+      <div class="prospect-row">
+        <div>
+          <div class="p-name"><span class="p-flag">${p.flag||''}</span>${p.name}</div>
+          <div class="p-team">${p.team}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="p-stat">ERA ${p.era} · ${p.ip} IP</span>
+          ${p.likely_top_prospect ? '<span class="star-badge">★ Top</span>' : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  Promise.all([loadStarters(), loadProspects()]);
 </script>
 </body>
 </html>
