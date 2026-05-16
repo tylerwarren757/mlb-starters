@@ -1,141 +1,69 @@
 {
-  "date": "2026-05-16",
-  "date_label": "Saturday, May 16, 2026",
-  "generated_at": "2026-05-14T14:43:54Z",
+  "date": "2026-05-18",
+  "date_label": "Monday, May 18, 2026",
+  "generated_at": "2026-05-16T16:46:54Z",
   "availability_threshold": 65.0,
   "games": [
     {
-      "away_team": "Toronto Blue Jays",
+      "away_team": "Cleveland Guardians",
       "home_team": "Detroit Tigers",
-      "game_time_utc": "2026-05-16T17:10:00Z",
-      "away_pitcher": null,
-      "home_pitcher": null
-    },
-    {
-      "away_team": "Kansas City Royals",
-      "home_team": "St. Louis Cardinals",
-      "game_time_utc": "2026-05-16T18:15:00Z",
-      "away_pitcher": null,
-      "home_pitcher": {
-        "id": 681517,
-        "name": "Kyle Leahy",
+      "game_time_utc": "2026-05-18T22:40:00Z",
+      "away_pitcher": {
+        "id": 677944,
+        "name": "Slade Cecconi",
         "flag": "\ud83c\uddfa\ud83c\uddf8",
         "birth_country": "USA",
-        "ownership": 3.2,
+        "ownership": 1.2,
         "recent_starts": [
           {
-            "date": "2026-04-17",
-            "matchup": "@ Astros",
+            "date": "2026-04-20",
+            "matchup": "vs Astros",
             "ip": "5.0",
-            "h": 5,
-            "er": 3,
-            "bb": 0,
-            "k": 6,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-22",
-            "matchup": "@ Marlins",
-            "ip": "5.0",
-            "h": 8,
-            "er": 4,
-            "bb": 3,
+            "h": 10,
+            "er": 6,
+            "bb": 2,
             "k": 2,
             "result": "L"
           },
           {
-            "date": "2026-04-28",
-            "matchup": "@ Pirates",
+            "date": "2026-04-26",
+            "matchup": "@ Jays",
+            "ip": "5.2",
+            "h": 6,
+            "er": 4,
+            "bb": 1,
+            "k": 5,
+            "result": "L"
+          },
+          {
+            "date": "2026-05-02",
+            "matchup": "@ Athletics",
             "ip": "5.1",
-            "h": 9,
-            "er": 3,
+            "h": 10,
+            "er": 5,
             "bb": 0,
-            "k": 7,
+            "k": 3,
             "result": "W"
           },
           {
-            "date": "2026-05-04",
-            "matchup": "vs Brewers",
+            "date": "2026-05-07",
+            "matchup": "@ Royals",
             "ip": "5.1",
             "h": 6,
-            "er": 1,
-            "bb": 2,
-            "k": 5,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "@ Padres",
-            "ip": "5.0",
-            "h": 2,
-            "er": 0,
-            "bb": 4,
-            "k": 5,
-            "result": "ND"
-          }
-        ]
-      }
-    },
-    {
-      "away_team": "Arizona Diamondbacks",
-      "home_team": "Colorado Rockies",
-      "game_time_utc": "2026-05-16T19:10:00Z",
-      "away_pitcher": {
-        "id": 593958,
-        "name": "Eduardo Rodriguez",
-        "flag": "\ud83c\uddfb\ud83c\uddea",
-        "birth_country": "Venezuela",
-        "ownership": 31.5,
-        "recent_starts": [
-          {
-            "date": "2026-04-15",
-            "matchup": "@ Orioles",
-            "ip": "5.0",
-            "h": 6,
-            "er": 4,
-            "bb": 4,
-            "k": 3,
-            "result": "ND"
-          },
-          {
-            "date": "2026-04-22",
-            "matchup": "vs Sox",
-            "ip": "5.0",
-            "h": 6,
-            "er": 4,
-            "bb": 3,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-29",
-            "matchup": "@ Brewers",
-            "ip": "4.2",
-            "h": 5,
             "er": 2,
-            "bb": 4,
-            "k": 4,
-            "result": "ND"
+            "bb": 3,
+            "k": 3,
+            "result": "W"
           },
           {
-            "date": "2026-05-05",
-            "matchup": "vs Pirates",
-            "ip": "7.0",
-            "h": 2,
+            "date": "2026-05-12",
+            "matchup": "vs Angels",
+            "ip": "4.0",
+            "h": 5,
             "er": 0,
-            "bb": 3,
+            "bb": 1,
             "k": 7,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "vs Mets",
-            "ip": "8.1",
-            "h": 4,
-            "er": 1,
-            "bb": 3,
-            "k": 4,
-            "result": "W"
+            "result": "ND"
           }
         ]
       },
@@ -143,63 +71,40 @@
     },
     {
       "away_team": "Baltimore Orioles",
-      "home_team": "Washington Nationals",
-      "game_time_utc": "2026-05-16T20:05:00Z",
+      "home_team": "Tampa Bay Rays",
+      "game_time_utc": "2026-05-18T22:40:00Z",
+      "away_pitcher": null,
+      "home_pitcher": null
+    },
+    {
+      "away_team": "Cincinnati Reds",
+      "home_team": "Philadelphia Phillies",
+      "game_time_utc": "2026-05-18T22:40:00Z",
       "away_pitcher": {
-        "id": 605135,
-        "name": "Chris Bassitt",
+        "id": 666157,
+        "name": "Nick Lodolo",
         "flag": "\ud83c\uddfa\ud83c\uddf8",
         "birth_country": "USA",
-        "ownership": 5.2,
+        "ownership": 55.1,
         "recent_starts": [
           {
-            "date": "2026-04-11",
-            "matchup": "vs Giants",
-            "ip": "4.2",
-            "h": 7,
-            "er": 1,
-            "bb": 1,
-            "k": 2,
-            "result": "ND"
-          },
-          {
-            "date": "2026-04-17",
-            "matchup": "@ Guardians",
-            "ip": "5.0",
-            "h": 4,
-            "er": 0,
-            "bb": 4,
-            "k": 2,
-            "result": "ND"
-          },
-          {
-            "date": "2026-04-22",
-            "matchup": "@ Royals",
-            "ip": "5.1",
-            "h": 8,
-            "er": 5,
-            "bb": 2,
-            "k": 3,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-30",
+            "date": "2026-05-08",
             "matchup": "vs Astros",
-            "ip": "6.2",
-            "h": 7,
-            "er": 1,
+            "ip": "5.1",
+            "h": 5,
+            "er": 4,
             "bb": 1,
-            "k": 7,
-            "result": "W"
+            "k": 2,
+            "result": "L"
           },
           {
-            "date": "2026-05-05",
-            "matchup": "@ Marlins",
+            "date": "2026-05-13",
+            "matchup": "vs Nationals",
             "ip": "4.0",
             "h": 6,
-            "er": 4,
+            "er": 5,
             "bb": 3,
-            "k": 3,
+            "k": 6,
             "result": "ND"
           }
         ]
@@ -207,491 +112,277 @@
       "home_pitcher": null
     },
     {
-      "away_team": "Philadelphia Phillies",
-      "home_team": "Pittsburgh Pirates",
-      "game_time_utc": "2026-05-16T20:05:00Z",
-      "away_pitcher": null,
-      "home_pitcher": null
-    },
-    {
-      "away_team": "Miami Marlins",
-      "home_team": "Tampa Bay Rays",
-      "game_time_utc": "2026-05-16T20:10:00Z",
-      "away_pitcher": null,
-      "home_pitcher": {
-        "id": 607259,
-        "name": "Nick Martinez",
-        "flag": "\ud83c\uddfa\ud83c\uddf8",
-        "birth_country": "USA",
-        "ownership": 54.3,
+      "away_team": "Atlanta Braves",
+      "home_team": "Miami Marlins",
+      "game_time_utc": "2026-05-18T22:40:00Z",
+      "away_pitcher": {
+        "id": 527048,
+        "name": "Mart\u00edn P\u00e9rez",
+        "flag": "\ud83c\uddfb\ud83c\uddea",
+        "birth_country": "Venezuela",
+        "ownership": 2.5,
         "recent_starts": [
           {
-            "date": "2026-04-17",
-            "matchup": "@ Pirates",
-            "ip": "5.1",
-            "h": 8,
-            "er": 2,
+            "date": "2026-04-05",
+            "matchup": "@ Diamondbacks",
+            "ip": "5.0",
+            "h": 5,
+            "er": 4,
+            "bb": 1,
+            "k": 1,
+            "result": "ND"
+          },
+          {
+            "date": "2026-04-11",
+            "matchup": "vs Guardians",
+            "ip": "5.0",
+            "h": 2,
+            "er": 1,
             "bb": 3,
-            "k": 3,
+            "k": 2,
             "result": "L"
           },
           {
-            "date": "2026-04-22",
-            "matchup": "vs Reds",
-            "ip": "8.0",
-            "h": 5,
-            "er": 1,
-            "bb": 1,
-            "k": 6,
+            "date": "2026-04-17",
+            "matchup": "@ Phillies",
+            "ip": "6.0",
+            "h": 4,
+            "er": 0,
+            "bb": 2,
+            "k": 4,
             "result": "W"
           },
           {
             "date": "2026-04-28",
-            "matchup": "@ Guardians",
-            "ip": "7.0",
-            "h": 3,
-            "er": 0,
-            "bb": 1,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-04",
-            "matchup": "vs Jays",
+            "matchup": "vs Tigers",
             "ip": "5.0",
-            "h": 5,
-            "er": 1,
-            "bb": 1,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "@ Sox",
-            "ip": "5.2",
-            "h": 7,
-            "er": 1,
-            "bb": 0,
-            "k": 3,
-            "result": "W"
-          }
-        ]
-      }
-    },
-    {
-      "away_team": "Cincinnati Reds",
-      "home_team": "Cleveland Guardians",
-      "game_time_utc": "2026-05-16T22:10:00Z",
-      "away_pitcher": {
-        "id": 663978,
-        "name": "Chris Paddack",
-        "flag": "\ud83c\uddfa\ud83c\uddf8",
-        "birth_country": "USA",
-        "ownership": 0.2,
-        "recent_starts": [
-          {
-            "date": "2026-04-10",
-            "matchup": "@ Tigers",
-            "ip": "6.0",
-            "h": 7,
-            "er": 2,
-            "bb": 1,
-            "k": 4,
-            "result": "L"
-          },
-          {
-            "date": "2026-04-15",
-            "matchup": "@ Braves",
-            "ip": "4.2",
-            "h": 5,
-            "er": 2,
-            "bb": 0,
-            "k": 4,
-            "result": "L"
-          },
-          {
-            "date": "2026-04-21",
-            "matchup": "vs Cardinals",
-            "ip": "4.2",
-            "h": 8,
-            "er": 5,
-            "bb": 1,
-            "k": 7,
-            "result": "L"
-          },
-          {
-            "date": "2026-04-27",
-            "matchup": "@ Dodgers",
-            "ip": "4.0",
-            "h": 4,
-            "er": 2,
-            "bb": 1,
-            "k": 1,
-            "result": "ND"
-          },
-          {
-            "date": "2026-05-03",
-            "matchup": "vs Phillies",
-            "ip": "2.2",
-            "h": 6,
-            "er": 7,
-            "bb": 3,
-            "k": 1,
-            "result": "L"
-          }
-        ]
-      },
-      "home_pitcher": {
-        "id": 668909,
-        "name": "Gavin Williams",
-        "flag": "\ud83c\uddfa\ud83c\uddf8",
-        "birth_country": "USA",
-        "ownership": 92.2,
-        "recent_starts": [
-          {
-            "date": "2026-04-18",
-            "matchup": "vs Orioles",
-            "ip": "7.0",
-            "h": 3,
-            "er": 1,
-            "bb": 1,
-            "k": 11,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-24",
-            "matchup": "@ Jays",
-            "ip": "6.0",
-            "h": 7,
-            "er": 6,
-            "bb": 2,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-29",
-            "matchup": "vs Rays",
-            "ip": "7.2",
-            "h": 5,
+            "h": 2,
             "er": 0,
-            "bb": 0,
-            "k": 9,
+            "bb": 4,
+            "k": 5,
             "result": "W"
           },
           {
-            "date": "2026-05-05",
-            "matchup": "@ Royals",
-            "ip": "6.0",
-            "h": 8,
-            "er": 5,
-            "bb": 2,
-            "k": 7,
-            "result": "L"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "vs Twins",
-            "ip": "6.0",
-            "h": 10,
-            "er": 5,
-            "bb": 1,
-            "k": 6,
-            "result": "L"
-          }
-        ]
-      }
-    },
-    {
-      "away_team": "Texas Rangers",
-      "home_team": "Houston Astros",
-      "game_time_utc": "2026-05-16T23:10:00Z",
-      "away_pitcher": null,
-      "home_pitcher": null
-    },
-    {
-      "away_team": "Chicago Cubs",
-      "home_team": "Chicago White Sox",
-      "game_time_utc": "2026-05-16T23:10:00Z",
-      "away_pitcher": {
-        "id": 592791,
-        "name": "Jameson Taillon",
-        "flag": "\ud83c\uddfa\ud83c\uddf8",
-        "birth_country": "USA",
-        "ownership": 14.5,
-        "recent_starts": [
-          {
-            "date": "2026-04-18",
-            "matchup": "vs Mets",
-            "ip": "6.0",
-            "h": 5,
-            "er": 1,
-            "bb": 3,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-24",
-            "matchup": "@ Dodgers",
-            "ip": "5.0",
-            "h": 4,
-            "er": 4,
-            "bb": 3,
-            "k": 4,
-            "result": "ND"
-          },
-          {
-            "date": "2026-04-29",
-            "matchup": "@ Padres",
-            "ip": "7.0",
-            "h": 3,
-            "er": 3,
-            "bb": 1,
-            "k": 6,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-05",
-            "matchup": "vs Reds",
+            "date": "2026-05-06",
+            "matchup": "@ Mariners",
             "ip": "5.2",
             "h": 5,
             "er": 2,
             "bb": 1,
             "k": 5,
-            "result": "ND"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "@ Rangers",
-            "ip": "5.1",
-            "h": 4,
-            "er": 1,
-            "bb": 2,
-            "k": 4,
             "result": "L"
           }
         ]
       },
       "home_pitcher": {
-        "id": 663436,
-        "name": "Davis Martin",
+        "id": 676974,
+        "name": "Max Meyer",
         "flag": "\ud83c\uddfa\ud83c\uddf8",
         "birth_country": "USA",
-        "ownership": 82.7,
+        "ownership": 36.0,
         "recent_starts": [
           {
-            "date": "2026-04-17",
-            "matchup": "@ Athletics",
-            "ip": "7.0",
+            "date": "2026-04-20",
+            "matchup": "vs Cardinals",
+            "ip": "5.1",
             "h": 3,
-            "er": 1,
+            "er": 2,
             "bb": 2,
-            "k": 4,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-23",
-            "matchup": "@ Diamondbacks",
-            "ip": "6.1",
-            "h": 6,
-            "er": 1,
-            "bb": 1,
-            "k": 7,
+            "k": 8,
             "result": "ND"
           },
           {
-            "date": "2026-04-28",
-            "matchup": "vs Angels",
+            "date": "2026-04-26",
+            "matchup": "@ Giants",
+            "ip": "5.0",
+            "h": 4,
+            "er": 0,
+            "bb": 1,
+            "k": 5,
+            "result": "ND"
+          },
+          {
+            "date": "2026-05-02",
+            "matchup": "vs Phillies",
+            "ip": "7.0",
+            "h": 1,
+            "er": 0,
+            "bb": 1,
+            "k": 7,
+            "result": "W"
+          },
+          {
+            "date": "2026-05-07",
+            "matchup": "vs Orioles",
+            "ip": "5.0",
+            "h": 6,
+            "er": 2,
+            "bb": 2,
+            "k": 5,
+            "result": "ND"
+          },
+          {
+            "date": "2026-05-13",
+            "matchup": "@ Twins",
             "ip": "5.2",
             "h": 7,
-            "er": 1,
-            "bb": 1,
-            "k": 7,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-04",
-            "matchup": "@ Angels",
-            "ip": "7.0",
-            "h": 5,
-            "er": 0,
-            "bb": 0,
-            "k": 10,
-            "result": "W"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "vs Mariners",
-            "ip": "6.0",
-            "h": 3,
-            "er": 1,
+            "er": 4,
             "bb": 2,
             "k": 9,
-            "result": "ND"
+            "result": "W"
           }
         ]
       }
     },
     {
-      "away_team": "Milwaukee Brewers",
-      "home_team": "Minnesota Twins",
-      "game_time_utc": "2026-05-16T23:10:00Z",
-      "away_pitcher": null,
+      "away_team": "New York Mets",
+      "home_team": "Washington Nationals",
+      "game_time_utc": "2026-05-18T22:45:00Z",
+      "away_pitcher": {
+        "id": 681035,
+        "name": "Christian Scott",
+        "flag": "\ud83c\uddfa\ud83c\uddf8",
+        "birth_country": "USA",
+        "ownership": 3.5,
+        "recent_starts": [
+          {
+            "date": "2026-04-23",
+            "matchup": "vs Twins",
+            "ip": "1.1",
+            "h": 0,
+            "er": 1,
+            "bb": 5,
+            "k": 1,
+            "result": "ND"
+          },
+          {
+            "date": "2026-05-01",
+            "matchup": "@ Angels",
+            "ip": "5.0",
+            "h": 3,
+            "er": 2,
+            "bb": 0,
+            "k": 8,
+            "result": "ND"
+          },
+          {
+            "date": "2026-05-07",
+            "matchup": "@ Rockies",
+            "ip": "4.2",
+            "h": 3,
+            "er": 1,
+            "bb": 2,
+            "k": 6,
+            "result": "ND"
+          },
+          {
+            "date": "2026-05-13",
+            "matchup": "vs Tigers",
+            "ip": "4.2",
+            "h": 7,
+            "er": 2,
+            "bb": 2,
+            "k": 5,
+            "result": "ND"
+          }
+        ]
+      },
       "home_pitcher": null
     },
     {
-      "away_team": "San Diego Padres",
-      "home_team": "Seattle Mariners",
-      "game_time_utc": "2026-05-16T23:15:00Z",
+      "away_team": "Toronto Blue Jays",
+      "home_team": "New York Yankees",
+      "game_time_utc": "2026-05-18T23:05:00Z",
       "away_pitcher": null,
       "home_pitcher": null
     },
     {
       "away_team": "Boston Red Sox",
-      "home_team": "Atlanta Braves",
-      "game_time_utc": "2026-05-16T23:15:00Z",
+      "home_team": "Kansas City Royals",
+      "game_time_utc": "2026-05-18T23:40:00Z",
       "away_pitcher": null,
       "home_pitcher": null
     },
     {
-      "away_team": "New York Yankees",
-      "home_team": "New York Mets",
-      "game_time_utc": "2026-05-16T23:15:00Z",
-      "away_pitcher": {
-        "id": 607074,
-        "name": "Carlos Rod\u00f3n",
-        "flag": "\ud83c\uddfa\ud83c\uddf8",
-        "birth_country": "USA",
-        "ownership": 63.2,
-        "recent_starts": [
-          {
-            "date": "2026-05-10",
-            "matchup": "@ Brewers",
-            "ip": "4.1",
-            "h": 2,
-            "er": 3,
-            "bb": 5,
-            "k": 4,
-            "result": "ND"
-          }
-        ]
-      },
+      "away_team": "Houston Astros",
+      "home_team": "Minnesota Twins",
+      "game_time_utc": "2026-05-18T23:40:00Z",
+      "away_pitcher": null,
+      "home_pitcher": null
+    },
+    {
+      "away_team": "Milwaukee Brewers",
+      "home_team": "Chicago Cubs",
+      "game_time_utc": "2026-05-18T23:40:00Z",
+      "away_pitcher": null,
+      "home_pitcher": null
+    },
+    {
+      "away_team": "Texas Rangers",
+      "home_team": "Colorado Rockies",
+      "game_time_utc": "2026-05-19T00:40:00Z",
+      "away_pitcher": null,
+      "home_pitcher": null
+    },
+    {
+      "away_team": "Athletics",
+      "home_team": "Los Angeles Angels",
+      "game_time_utc": "2026-05-19T01:38:00Z",
+      "away_pitcher": null,
       "home_pitcher": null
     },
     {
       "away_team": "Los Angeles Dodgers",
-      "home_team": "Los Angeles Angels",
-      "game_time_utc": "2026-05-17T01:38:00Z",
+      "home_team": "San Diego Padres",
+      "game_time_utc": "2026-05-19T01:40:00Z",
       "away_pitcher": null,
-      "home_pitcher": {
-        "id": 667755,
-        "name": "Jos\u00e9 Soriano",
-        "flag": "\ud83c\udde9\ud83c\uddf4",
-        "birth_country": "Dominican Republic",
-        "ownership": 96.6,
-        "recent_starts": [
-          {
-            "date": "2026-04-17",
-            "matchup": "vs Padres",
-            "ip": "5.2",
-            "h": 2,
-            "er": 0,
-            "bb": 4,
-            "k": 8,
-            "result": "W"
-          },
-          {
-            "date": "2026-04-22",
-            "matchup": "vs Jays",
-            "ip": "5.0",
-            "h": 7,
-            "er": 0,
-            "bb": 0,
-            "k": 4,
-            "result": "ND"
-          },
-          {
-            "date": "2026-04-28",
-            "matchup": "@ Sox",
-            "ip": "5.0",
-            "h": 6,
-            "er": 3,
-            "bb": 3,
-            "k": 6,
-            "result": "L"
-          },
-          {
-            "date": "2026-05-04",
-            "matchup": "vs Sox",
-            "ip": "4.0",
-            "h": 8,
-            "er": 5,
-            "bb": 3,
-            "k": 5,
-            "result": "L"
-          },
-          {
-            "date": "2026-05-10",
-            "matchup": "@ Jays",
-            "ip": "7.2",
-            "h": 5,
-            "er": 1,
-            "bb": 1,
-            "k": 7,
-            "result": "W"
-          }
-        ]
-      }
+      "home_pitcher": null
     },
     {
       "away_team": "San Francisco Giants",
-      "home_team": "Athletics",
-      "game_time_utc": "2026-05-17T01:40:00Z",
+      "home_team": "Arizona Diamondbacks",
+      "game_time_utc": "2026-05-19T01:40:00Z",
+      "away_pitcher": null,
+      "home_pitcher": null
+    },
+    {
+      "away_team": "Chicago White Sox",
+      "home_team": "Seattle Mariners",
+      "game_time_utc": "2026-05-19T01:40:00Z",
       "away_pitcher": null,
       "home_pitcher": null
     }
   ],
   "available": [
     {
-      "name": "Chris Paddack",
+      "name": "Slade Cecconi",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 0.2,
-      "matchup": "Cincinnati Reds @ Cleveland Guardians"
+      "pct_owned": 1.2,
+      "matchup": "Cleveland Guardians @ Detroit Tigers"
     },
     {
-      "name": "Kyle Leahy",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 3.2,
-      "matchup": "Kansas City Royals @ St. Louis Cardinals"
-    },
-    {
-      "name": "Chris Bassitt",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 5.2,
-      "matchup": "Baltimore Orioles @ Washington Nationals"
-    },
-    {
-      "name": "Jameson Taillon",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 14.5,
-      "matchup": "Chicago Cubs @ Chicago White Sox"
-    },
-    {
-      "name": "Eduardo Rodriguez",
+      "name": "Mart\u00edn P\u00e9rez",
       "flag": "\ud83c\uddfb\ud83c\uddea",
-      "pct_owned": 31.5,
-      "matchup": "Arizona Diamondbacks @ Colorado Rockies"
+      "pct_owned": 2.5,
+      "matchup": "Atlanta Braves @ Miami Marlins"
     },
     {
-      "name": "Nick Martinez",
+      "name": "Christian Scott",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 54.3,
-      "matchup": "Miami Marlins @ Tampa Bay Rays"
+      "pct_owned": 3.5,
+      "matchup": "New York Mets @ Washington Nationals"
     },
     {
-      "name": "Carlos Rod\u00f3n",
+      "name": "Max Meyer",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "pct_owned": 63.2,
-      "matchup": "New York Yankees @ New York Mets"
+      "pct_owned": 36.0,
+      "matchup": "Atlanta Braves @ Miami Marlins"
+    },
+    {
+      "name": "Nick Lodolo",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "pct_owned": 55.1,
+      "matchup": "Cincinnati Reds @ Philadelphia Phillies"
     }
   ]
 }
